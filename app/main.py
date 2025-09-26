@@ -8,8 +8,8 @@ app = FastAPI()
 
 
 # Get agent details from environment variables
-AI_FOUNDRY_ENDPOINT = "westus.api.azureml.ms;831352c0-db5c-4b45-a2c3-3b05baf07718;rg-nimshaakv-8998;hub-project"  # Orchestrator agent endpoint
-AI_FOUNDRY_KEY = "1MXbrmRy4XvQXmx97GkVgt1RzktKARgGG0xCm8lZfy3jaqwmpXWLJQQJ99BIACHYHv6XJ3w3AAAAACOGESSF"  # API Key (or replace with Managed Identity)
+AI_FOUNDRY_ENDPOINT = os.getenv("AGENT_ENDPOINT")  # Orchestrator agent endpoint
+AI_FOUNDRY_KEY = os.getenv("AGENT_KEY")  # API Key (or replace with Managed Identity)
 
 @app.get("/")
 async def root():
